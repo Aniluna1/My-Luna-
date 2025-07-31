@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>International Girlfriend Day 💗</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://i.imgur.com/oW9aLLA.jpg') no-repeat center center fixed;
+      background-size: cover;
+      overflow-x: hidden;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #container {
+      margin-top: 50px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 20px;
+      width: 90%;
+      max-width: 700px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .line {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      margin: 16px 0;
+      font-size: 1.2rem;
+    }
+
+    .line.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #nextButton {
+      margin: 30px auto;
+      padding: 12px 30px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 30px;
+      background: #ff69b4;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      display: block;
+    }
+
+    #nextButton:hover {
+      background: #ff85c1;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="letter"></div>
+    <button id="nextButton">Tap to open 💗</button>
+  </div>
+
+  <script>
+    const lines = [
+      "Hey cutie pie 🐱👀",
+      "Happy International Girlfriend Day 💘",
+      "I don’t even know where to begin... maybe with this — I’m the luckiest chick 🐣 on Earth because I have you.",
+      "Remember you named me 'chick'? 😚 And teased me saying 'I’ll eat you, be careful' — bruh that moment lives rent-free in my head forever. 🙃",
+      "It was the first time someone gave me a nickname... and it was *you*. My Lunika, my darling, my babe. 🤌",
+      "Every moment with you feels like magic, like the 🌝 moonlight hugging the 🌚 darkness just right.",
+      "Even when you tease me or bully me 😿 — you make my heart go 🫠.",
+      "Sometimes you say you’re wicked... but to me, you’re the most beautiful soul I’ve met.",
+      "You turned my world upside down, just with your presence — even if I’ve never heard your voice... I feel your love in every word.",
+      "You’re not just my girlfriend... you’re my best friend, my peace, my chaos, my everything 🥹.",
+      "Luna, Lunika... my 🌙 girl, my reason to be better. I promise, your Ani is trying so hard every day.",
+      "Not because I have to — but because I *want* to build a future with you.",
+      "One day, I’ll hear your voice say 'I love you'... one day, I’ll hold your hand for real 🫂.",
+      "But for now, just know — I'm yours. Only yours. Forever ♾️",
+      "I love you more than words, more than skies, more than anything. 💗",
+      "~ Your Ani"
+    ];
+
+    let index = 0;
+    const letterDiv = document.getElementById("letter");
+    const nextBtn = document.getElementById("nextButton");
+
+    function showNextLine() {
+      if (index < lines.length) {
+        const p = document.createElement("p");
+        p.className = "line";
+        p.textContent = lines[index++];
+        letterDiv.appendChild(p);
+
+        // force reflow for animation
+        setTimeout(() => {
+          p.classList.add("visible");
+          p.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }, 50);
+
+        if (index === lines.length) {
+          nextBtn.textContent = "That's all 💗";
+          nextBtn.disabled = true;
+          nextBtn.style.background = '#999';
+        }
+      }
+    }
+
+    nextBtn.addEventListener("click", showNextLine);
+  </script>
+</body>
+</html>
